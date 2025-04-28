@@ -1,0 +1,279 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+  min-height: 100vh;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, #a8d8ea 0%, #f8b5d3 100%);
+}
+
+.dark .background {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+}
+
+.bubble {
+  position: absolute;
+  bottom: -50px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float 15s linear infinite;
+}
+
+.dark .bubble {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Estilos adicionais para melhorar a aparência */
+.backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+}
+
+/* Animação suave para os cards */
+.hover\:scale-105 {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Melhorar a legibilidade do texto */
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para os botões */
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-gradient-to-br from-[#a8d8ea] to-[#f8b5d3] text-gray-800;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 1s ease-out;
+}
+
+/* Estilização de scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-white/20;
+}
+
+.dark ::-webkit-scrollbar-track {
+  @apply bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#a8d8ea] rounded-full;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-[#4a90e2] rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#8bc5e0];
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#357abd];
+}
+
+/* Estilos de botão padrão */
+button {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Efeito de hover suave em links */
+a {
+  @apply transition-colors duration-300;
+}
+
+/* Classes de utilidade personalizadas */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+.dark .glass-effect {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+.glass-effect:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass-effect:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #a8d8ea, #f8b5d3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dark .text-gradient {
+  background: linear-gradient(to right, #4a90e2, #9b59b6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-[#a8d8ea] to-[#f8b5d3] text-gray-800;
+  }
+
+  .dark body {
+    @apply bg-gradient-to-br from-black to-[#1a1a1a] text-white;
+  }
+}
+
+@layer components {
+  .bg-gradient {
+    @apply bg-gradient-to-br from-[#a8d8ea] to-[#f8b5d3];
+  }
+
+  .dark .bg-gradient {
+    @apply bg-gradient-to-br from-black to-[#1a1a1a];
+  }
+
+  .btn-primary {
+    @apply px-6 py-2 bg-[#a8d8ea] hover:bg-[#8bc5e0] text-gray-800 rounded-full font-semibold transition-all duration-300;
+  }
+
+  .dark .btn-primary {
+    @apply px-6 py-2 bg-[#4a90e2] hover:bg-[#357abd] text-white rounded-full font-semibold transition-all duration-300;
+  }
+
+  .fade-in {
+    @apply opacity-0 animate-[fadeIn_0.6s_ease-out_forwards];
+  }
+
+  .slide-up {
+    @apply translate-y-10 opacity-0 animate-[slideUp_1s_ease-out_forwards];
+  }
+}
+
+/* Estilos para os cards de produtos */
+.product-card {
+  @apply bg-white/60 backdrop-blur-sm rounded-xl overflow-hidden border border-white/20;
+  transition: all 0.3s ease;
+}
+
+.dark .product-card {
+  @apply bg-black/60 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800;
+}
+
+.product-card:hover {
+  @apply bg-white/80 border-white/30;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px -5px rgba(168, 216, 234, 0.3);
+}
+
+.dark .product-card:hover {
+  @apply bg-black/80 border-gray-700;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+}
