@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import SecondaryNavbar from '@/app/components/SecondaryNavbar';
-import ProductCard from '@/app/components/ProductCard';
+import SecondaryNavbar from '../../components/SecondaryNavbar';
+import ProductCard from '../../components/ProductCard';
 
 const punicoes = [
   {

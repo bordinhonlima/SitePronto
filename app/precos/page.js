@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import SecondaryNavbar from '@/app/components/SecondaryNavbar';
+import SecondaryNavbar from '../components/SecondaryNavbar';
 
 const armasGTA = [
   { nome: 'Sniperrifle', preco: 'R$ 2.000.000', precoParceria: 'R$ 1.900.000' },

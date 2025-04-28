@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import SecondaryNavbar from '@/app/components/SecondaryNavbar';
-import ProductCard from '@/app/components/ProductCard';
+import SecondaryNavbar from '../components/SecondaryNavbar';
+import ProductCard from '../components/ProductCard';
 
 // Dados dos produtos por categoria
 const produtos = {
